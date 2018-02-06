@@ -1,0 +1,10 @@
+Deep
+India
+java_developer
+
+c++
+matlab
+python
+oracle_db
+asp.net
+angularjs
