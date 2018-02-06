@@ -1,0 +1,83 @@
+// Generate square wave of 50KHz @ PORTA.0
+
+//Interrupt service routine for Timer0 Compare
+/*This interrupt subroutine will be called evry time the value in TCNT0 will
+   equal to value loaded OCR0 i.e. 10 in this case.
+   
+   The vector address of Timer0 Compare interrupt is 0x026 in ATMEGA16.
+   (Page no: 45 ATMEGA 16 datasheet)
+   
+   For this example, subroutine will be called every 10 micro second */
+
+  void TIMER0_COMP() org 0x026
+  {
+   PORTA^=0x01; // Toggle PORTA.0 every time this subroutine is called
+  }
+
+ // Timer0 Set-Up
+  /*
+   *****************************************************************************
+
+   Timer Clock Period WITHOUT Prescaler
+   Crystal Frequency = 8MHz
+   Timer Period= 1/8MHz = 0.125 Micro Second
+
+   ****************************************************************************
+
+   ON and OFF time Calculations
+    f= 50KHz
+    T = 1/f = 1/50KHz = 20 Micro Second
+    T/2 = 10 Micro Second  (ON/OFF time)
+
+  *****************************************************************************
+
+   Calculation of Count Value
+   Required Delay =Count * PreScaler * Crystal Period
+   10 Micro Second = Count*Prescaler* 0.125 Micro Second
+    => Count * PreScaler= 80
+    Now, we have Prescaler options of 1,8,64,256,1024
+    In this case we could take Prescaler =8 and hence count =10
+
+  *****************************************************************************
+  Setting up TCCR0
+
+  FOR,
+    CTC MODE  WGM00 =0 and WGM01=1
+    Clk/8  CS0[2:0] = 010
+
+ FOC0 WGM00 COM01 COM00 WGM01 CS02 CS01 CS00
+  0     0    0      0     1    0    1    0
+
+  TCCR0 load value = 0x0A
+ ******************************************************************************
+  Setting up OCR0
+
+  We load the count value in OCR0.
+ OCR0 load value=0x0A;
+ ******************************************************************************
+ Interrupt Enable
+  In TIMSK, to enable Output Compare Match Interrupt, 1st bit has to be set.
+  For any interrupt, global interrupt has to be enabled
+ ******************************************************************************
+  
+  */
+
+void main() {
+ // PORTA Set-Up
+ DDRA=0x01; // Set PORTA.0 as O/P
+ PORTA=0X01; // Initialize PORTA.0 to 1
+
+//Timer 0 Set-Up
+ TCCR0=0x0A;
+ OCR0=0x0A;
+
+
+//GLobal and Timer 0 Compare  Interrupt enable
+  TIMSK.B1=1;  //OCIE0 Enable
+  SREG.B7=1;   // Global interrupt enable
+
+  while(1)
+  {
+  //do nothing
+  }
+}

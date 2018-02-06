@@ -1,0 +1,11 @@
+1).You could take the first character from Scanner.next:
+
+     char c = reader.next().charAt(0);
+
+2).To consume exactly one character you could use:
+
+     char c = reader.findInLine(".").charAt(0);
+
+3).To consume strictly one character you could use:
+
+     char c = reader.next(".").charAt(0);

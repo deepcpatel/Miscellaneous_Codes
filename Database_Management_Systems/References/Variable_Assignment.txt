@@ -1,0 +1,3 @@
+Assigning a query result to a variable in MySQL:- 
+
+	set  @start= (select min(salary) from employee);

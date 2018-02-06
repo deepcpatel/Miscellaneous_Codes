@@ -1,0 +1,2 @@
+1).This is the time calculation of the old unoptimized program.
+2).To calculate new time go to "RREF Generation Program" folder and copy the .cpp file here and do necessary changes and calculate.

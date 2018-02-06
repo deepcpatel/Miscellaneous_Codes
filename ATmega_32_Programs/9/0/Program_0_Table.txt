@@ -1,0 +1,8 @@
+Voltage Source |        Binary Value        |   Calculation Result
+   Input       | Register Value     Decimal |      from Formula
+   4 V         |  11-00101110        814    |        3.9746
+   3 V         |  10-01101100        620    |        3.0273
+   2 V         |  01-10011100        412    |        2.0117
+
+Note:-I/P voltage Formula:-{Vin=(Vref*ADC)/1024}
+      Here, Vref=5 V

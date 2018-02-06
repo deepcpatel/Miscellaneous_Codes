@@ -1,0 +1,9 @@
+Deep
+India
+
+c++
+matlab
+python
+oracle_db
+asp.net
+angularjs

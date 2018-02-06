@@ -1,0 +1,7 @@
+Hello,
+
+Please Compile and Run the "Closest_Point_Pair.c" file, which is
+program to find the closest pair of points.The "dependency" folder 
+has the data structures only.
+
+Thank You

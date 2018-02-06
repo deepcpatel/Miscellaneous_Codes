@@ -1,0 +1,28 @@
+# BEGIN C000H
+	   MVI A,80
+	   OUT 13
+
+START:	   MVI A,01
+	   OUT 12
+
+LOOP:	   JMP DELAY
+
+ADD:	   ADD A
+	   JC START
+	   OUT 12
+	   JMP LOOP
+	   HLT
+
+DELAY:	   MVI C,05
+
+WAIT2:	   MVI D,2F
+
+WAIT1:	   MVI E,FF
+
+WAIT:	   DCR E
+	   JNZ WAIT
+	   DCR D
+	   JNZ WAIT1
+	   DCR C
+	   JNZ WAIT2
+	   JMP ADD

@@ -1,0 +1,25 @@
+# BEGIN C000H
+	   LDA C101
+	   MOV B,A
+	   LDA C100
+	   MOV C,A
+	   MVI A,00
+	   MVI D,00
+
+LOOP:	   ADD B
+	   JC CARRY
+
+DECR:	   DCR C
+	   JNZ LOOP
+	   JMP STORE
+
+CARRY:	   INR D
+	   JMP DECR
+
+STORE:	   STA C102
+	   MOV A,D
+	   STA C103
+	   HLT
+
+# ORG C100
+# DB 10H,23H

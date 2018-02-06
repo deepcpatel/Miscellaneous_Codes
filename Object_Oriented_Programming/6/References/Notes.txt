@@ -1,0 +1,18 @@
+1). In C++ the Destructer is called when the object scope is over. So to avoid destructer calling try to pass the reference
+    of the object whenever possible
+
+2). When we write 
+		cout<<"My Lucky Number is:"<<n<<" Number"; 
+
+then first cout<<"\nMy Lucky Number" goes for processing and returns cout:-
+		
+like		cout<<n 
+
+is made and the cout<<n goes for processing... Then again cout is returned and it becomes like:-
+
+		cout<<" Number";
+
+then this go to processing.
+
+So in the c++ program here in operator overloading of << we have returned a reference to ostream class "out" so that 
+when it is processed out is again returned. Here we returned "out" which is same as "cout" . We have named "out" reference.

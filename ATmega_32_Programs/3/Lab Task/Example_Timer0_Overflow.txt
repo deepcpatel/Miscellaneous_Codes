@@ -1,0 +1,91 @@
+// Generate square wave of 50KHz @ PORTA.0
+
+//Interrupt service routine for Timer0 Overflow
+/*This interrupt subroutine will be called every time the value in TCNT0 will
+   go from 255 (0xFF)-> 0(0ox00).
+   
+   The vector address of Timer0 Overflow interrupt is 0x012 in ATMEGA16.
+   (Page no: 45 ATMEGA 16 datasheet)
+   
+   For, this example this subroutine will be called every 10 micro second */
+
+ void TIMER0_OVF() org 0x012
+  {
+   PORTA^=0x01; // Toggle PORTA.0 every time this subroutine is called
+   TCNT0=0xF6;  // Since value in TCNT0 keeps on changing after timer is ON,
+                //it is important to load count value
+
+  }
+
+ // Timer0 Set-Up
+  /*
+   *****************************************************************************
+
+   Timer Clock Period WITHOUT Prescaler
+   Crystal Frequency = 8MHz
+   Timer Period= 1/8MHz = 0.125 Micro Second
+
+   ****************************************************************************
+
+   ON and OFF time Calculations
+    f= 50KHz
+    T = 1/f = 1/50KHz = 20 Micro Second
+    T/2 = 10 Micro Second  (ON/OFF time)
+
+   *****************************************************************************
+
+   Calculation of Count Value
+   Required Delay =Count * PreScaler * Crystal Period
+   10 Micro Second = Count*Prescaler* 0.125 Micro Second
+    => Count * PreScaler= 80
+    Now, we have Prescaler options of 1,8,64,256,1024
+    In this case we could take Prescaler =8 and hence count =10
+
+  *****************************************************************************
+  Setting up TCCR0
+
+  FOR,
+    Normal MODE  WGM00 =0 and WGM01=0
+    Clk/8  CS0[2:0] = 010
+
+ FOC0 WGM00 COM01 COM00 WGM01 CS02 CS01 CS00
+  0     0    0      0     0    0    1    0
+
+  TCCR0 load value = 0x02
+ ******************************************************************************
+  Since we are using Timer Overflow interrupt we shall set up register TCNT0.
+  Interrupt will be generated when value in TCNT0 rolls over to 0 from 255.
+  Hence, Value to be loaded in TCNT0 = 256-10 =246 (0XF6)
+
+ (Here, instead of 255, 256 is considered as interrupt occurs when value in
+ TCNTO goes from 255 to 0.)
+ ******************************************************************************
+ Interrupt Enable
+ TIMSK is register for masking interrupts.
+ To enable Timer0 Overflow Interrupt, 0th bit has to be set.
+
+  Also,for interrupt to be generated, global interrupt has to be enabled
+ ******************************************************************************
+
+  */
+
+void main() {
+
+ // PORTA Set-Up
+ DDRA=0x01; // Set PORTA.0 as O/P
+ PORTA=0X01; // Initialize PORTA.0 to 1
+
+//Timer 0 Set-Up
+ TCCR0=0x02;
+ TCNT0=0xF6;
+
+
+//Global and Timer 0 Overflow  Interrupt enable
+  TIMSK.B0=1;  //TOIE0 Enable
+  SREG.B7=1;   // Global interrupt enable
+
+  while(1)
+  {
+  //do nothing
+  }
+}

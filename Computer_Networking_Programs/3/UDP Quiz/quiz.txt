@@ -1,0 +1,21 @@
+This Question will be send to client after connection established
+.......................................Questions................................
+
+1. find the next number in the series
+
+(1,1,2,3,5,_)
+
+A) 7
+B) 8
+C) 9
+D) I don't know
+
+
+2. find the velue of "sqrt(144)"
+
+A) 10
+B) 12
+C) question was not clear
+D) I don't know
+
+.......................................EOF Questions........................

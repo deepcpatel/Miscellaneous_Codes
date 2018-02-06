@@ -1,0 +1,49 @@
+ARITHMATIC
+
+1. ADD -: Add register or memory to accumulator
+2. ADI -: Add immediate to accumulator
+3. SUB -: Subtract register or memory from accumulator
+4. SBI -: Subtract immediate from accumulator with borrow
+5. INR -: Increment register or memory by 1
+6. INX -: Increment register pair by 1
+7. DCR -: Decrement register or memory by 1
+8. DCX -: Decrement register pair by 1
+
+DATA TRANSFER
+
+1. MOV -: Copy from source to destination
+2. MVI -: Move immediate 8-bit
+3. LDA -: Load accumulator
+4. LDAX -: Load accumulator indirect
+5. LXI -: Load register pair immediate
+6. LHLD -: Load H and L registers direct
+7. STA -: Store accumulator direct
+8. SHLD -: Store H and L registers direct
+9. XCHG -: Exchange H and L with D and E
+10. OUT -: Output data from accumulator to a port with 8-bit address
+11. IN -: Input data to accumulator from a port with 8-bit address
+
+JUMP
+
+1. JMP -: Jump unconditionally
+2. JC -: Jump on Carry
+3. JNC -: Jump on no Carry
+4. JZ -: Jump on zero
+5. JNZ -: Jump on no zero
+
+LOGICAL
+
+1. CMP -: Compare register or memory with accumulator
+2. CPI -: Compare immediate with accumulator
+3. ANA -: Logical AND register or memory with accumulator
+4. ANI -: Logical AND immediate with accumulator
+5. XRA -: Exclusive OR register or memory with accumulator
+6. XRI -: Exclusive OR immediate with accumulator
+7. ORA -: Logical OR register or memory with accumulaotr
+8. ORI -: Logical OR immediate with accumulator
+9. CMA -: Complement accumulator
+
+CONTROL INSTRUCTIONS
+
+1. NOP -: No operation
+2. HLT -: Halt and enter wait state
