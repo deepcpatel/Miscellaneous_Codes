@@ -83,8 +83,8 @@ struct node_stack* backup()
 
 		while(temp!=NULL)
 		{
-            push(temp->s, temp->t);
-            temp=temp->link;
+		    push(temp->s, temp->t);
+		    temp=temp->link;
 		}
 	}
 
