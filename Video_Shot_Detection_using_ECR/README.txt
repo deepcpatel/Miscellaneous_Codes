@@ -2,7 +2,9 @@ Video shot detection using Edge Change Ratio (ECR) values
 
 Libraries used : NumPy, OpenCV for Python
 
-Reference : "Automatic shot boundary detection combining color, edge, and motion features of adjacent frames" paper by A. Jacobs, A. Miene, G. T. Ioannidis, and O. Herzog
+Reference : 
+
+"Automatic shot boundary detection combining color, edge, and motion features of adjacent frames" paper by A. Jacobs, A. Miene, G. T. Ioannidis, and O. Herzog
             
 Instructions :
 
