@@ -6,7 +6,7 @@ Creators:
 		
 Reference:
 		
-		Algorithm Design - Jon Kleinberg, Eva Tardos (2005)
+	Algorithm Design - Jon Kleinberg, Eva Tardos (2005)
 
 Instructions for program compilation:
 
