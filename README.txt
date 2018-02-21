@@ -3,7 +3,7 @@ Codes written by Me!
 Platforms and Languages used :
 
 • "8085_Assembly_Programming"        -> Assembly language for 8085 processor
-• "ATmega_32_Programs"               -> Written in MikroC platform in C language
+• "ATmega_32_Programs"               -> Written on MikroC platform in C language
 • "Bash_Programming"                 -> Linux Bash
 • "Career_Recommendation_system"     -> Python 2.7 and 3
 • "Computer_Networking_Programs"     -> Applications using network socket programming in C
