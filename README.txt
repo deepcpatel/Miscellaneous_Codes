@@ -17,5 +17,5 @@ Platforms and Languages used :
 • "Randomized_Closest_Point_Pairs"   -> C
 • "Some_Data_Analysis_Algorithms"    -> GNU Octave/MATLAB
 • "Statistics_Codes"                 -> Python 2.7
-• "Video_Shot_Detection_using_ECR"   -> Python 2.7 using NumPy and OpenCV
 • "Trie"                             -> C++
+• "Video_Shot_Detection_using_ECR"   -> Python 2.7 using NumPy and OpenCV
